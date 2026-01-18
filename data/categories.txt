@@ -1,0 +1,5 @@
+1|Main Course
+2|Dessert
+3|Vegetarian
+4|Asian Food
+5|European Food

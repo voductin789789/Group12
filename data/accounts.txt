@@ -1,0 +1,3 @@
+1|admin|admin123|admin@webnauan.com|ADMIN
+2|member01|123456|tuan@gmail.com|MEMBER
+3|chef_huong|huong123|huong@yahoo.com|MEMBER
