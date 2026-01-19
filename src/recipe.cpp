@@ -1,7 +1,7 @@
 #include "../headers/recipe.h"
 #include "../headers/file_manager.h"
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 

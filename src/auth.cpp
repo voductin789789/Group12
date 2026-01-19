@@ -1,5 +1,6 @@
 #include "../headers/auth.h"
 #include "../headers/file_manager.h"
+#include <iostream>
 #include <algorithm>
 
 using namespace std;
