@@ -1,31 +1,40 @@
 #ifndef RECIPE_H
 #define RECIPE_H
 
-#include <iostream>
 #include <string>
 #include <vector>
+#include "recipe_data.h"
+#include "user.h"
 
 using namespace std;
 
+// Quản lý các công thức nấu ăn
 class Recipe {
-private:
-    int recipeID;
-    string title;
-    string description;
-    string ingredients;
-    string instructions;
-    int cookingTime;
-    string difficulty;
-    int categoryID;
-    int authorID;
-
 public:
-    void addRecipe();
-    void editRecipe(int id);
-    void deleteRecipe(int id);
-    void viewDetail(int id);
-    void searchRecipe(string keyword);
-    void listAllRecipes();
+    // Thêm công thức mới (cần người dùng đã đăng nhập)
+    bool addRecipe(const RecipeData& recipe, const User& currentUser);
+    
+    // Sửa công thức (chỉ tác giả hoặc admin mới được)
+    bool editRecipe(int id, const RecipeData& newData, const User& currentUser);
+    
+    // Xóa công thức
+    bool deleteRecipe(int id, const User& currentUser);
+    
+    // Xem chi tiết một công thức
+    RecipeData getRecipeById(int id);
+    
+    // Tìm kiếm công thức theo từ khóa
+    vector<RecipeData> searchRecipe(const string& keyword);
+    
+    // Liệt kê tất cả công thức
+    vector<RecipeData> listAllRecipes();
+    
+    // Lấy công thức theo danh mục
+    vector<RecipeData> getRecipesByCategory(int categoryId);
+
+private:
+    // Lấy ID mới cho công thức
+    int getNextRecipeId();
 };
 
 #endif

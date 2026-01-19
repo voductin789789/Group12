@@ -1,25 +1,28 @@
 #ifndef AUTH_H
 #define AUTH_H
 
-#include <iostream>
 #include <string>
-#include <fstream>
-#include <sstream>
-#include <vector>
+#include "user.h"
 
 using namespace std;
 
+// Quản lý xác thực người dùng
 class Account {
-private:
-    string username;
-    string role;
-
 public:
-    bool login(string user, string pass);
-    void registerAccount(string user, string pass, string mail);
-    void resetPassword(string mail);
-    string getUsername() const { return username; }
-    string getRole() const { return role; }
+    // Đăng nhập: trả về User nếu thành công, User không xác thực nếu thất bại
+    User login(const string& username, const string& password);
+    
+    // Đăng ký tài khoản mới
+    bool registerAccount(const string& username, const string& password, const string& email);
+    
+    // Kiểm tra tên người dùng đã tồn tại hay chưa
+    bool userExists(const string& username);
+    
+    // Reset mật khẩu
+    bool resetPassword(const string& email, const string& newPassword);
+    
+    // Lấy người dùng theo ID
+    User getUserById(int id);
 };
 
 #endif
